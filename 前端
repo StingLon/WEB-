@@ -12,11 +12,14 @@ HTML：
  
 规范：
  1.在<html>前，要写文档声明语句: <!DOCTYPE HTML>
- 2.标题为<title></title>
- 3.设置网页编码的语句为<meta charset= "utf-8" />，是在<head></head>标签内定义
- 4.页面关键字
-  （1）换行符 <br /> 
  
+ 2.标题为<title></title>
+ 
+ 3.设置网页编码的语句为<meta charset= "utf-8" />，是在<head></head>标签内定义
+ 
+ 4.页面关键字
+  （1）换行符 <br />  
+  
   （2）段落 <p></p>
   
   （3）属性align的值包括left（左对齐）、center（居中对齐）、right（右对齐）三种
@@ -31,7 +34,7 @@ HTML：
                      <sub>定义下标字</sub><br />
                      
  * (6)定义超链接  <a href=“URL”></a>
-       target属性表示链接的打开方式，即当点击了链接，选择是在另一个页面打开还是本页面打开。其属性值包括_blank(新的空白页)、_self(当前页)，_top（当前页）。<a href="#" target="_blank">百度一下</a>
+          target属性表示链接的打开方式，即当点击了链接，选择是在另一个页面打开还是本页面打开。其属性值包括_blank(新的空白页)、_self(当前页)，            _top（当前页）。<a href="#" target="_blank">百度一下</a>
       href的值可以是外部链接，也可以是内部文件:<a href=“about.html”>内部链接 </a> 
       
    (7)锚点
@@ -57,10 +60,10 @@ HTML：
                    <li>香蕉</li>
                   </ul>
         定义列表  
-                     <dl>
-                       <dt>爱好</dt>
+                   <dl>
+                      <dt>爱好</dt>
                            <dd>听歌</dd>
-                     </dl>
+                    </dl>
                      
     (10)HTML 实体字符:
     
