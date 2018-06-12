@@ -69,7 +69,64 @@ HTML：
     
     (11)图像热区:点击这个部分，就会链接到别的地方。创建图像热区想要用<img>b标签把图片插入进来，然后使用<area>标签在刚才插入的图片里划分热区。
   
-    (12)表格
+  * (12)表格
+       <table align="center" cellpadding="2" cellspacing="3" width="300" height="300" border="1" >
+         <tr >
+            <td colspan="2">&nbsp;</td>                          
+         </tr>
+         <tr>
+            <td >&nbsp;</td>
+            <td>&nbsp;</td>
+         </tr>       
+        </table>
+     
+  * (13) form 表单 :       表单主要负责获取用户填写的数据，并通过浏览器向服务器传送数据。
+       <form name="form1" action="URL" method="get|post" target="文档显示方式">
+         用户名：<input type="text" name="uname" />
+         密 码：<input type="password" name="passwd" />
+      </form>
+      
+    
+      单选按钮：    
+                   <form>
+                     <input type="radio" name="sex" value="male">Male<br>
+                     <input type="radio" name="sex" value="female">Female
+                  </form>
+                  
+      复选框：  从若干给定的选择中选取一个或若干选项
+                      <form>
+                        <input type="checkbox" name="song" value="听歌">听歌<br>
+                        <input type="checkbox" name="run" value="跑步"> 跑步
+                     </form>
+                     
+      提交按钮 :        <input type="submit"> 
+                     
+      隐藏域  :     隐藏域用于在程序发送没有必要让用户看到特定值的时候使用
+                  <input type="hidden" name="uid" value="10"/>              
+                  
+      下拉框  :   
+                   <form action="">
+                      <select name="cars">
+                      <option value="volvo">Volvo</option>
+                      <option value="saab">Saab</option>
+                      </select>
+                      
+      optgroup(表单元素：下拉框分组)  :
+             <select name="city" multiple>
+                   <optgroup label="广东">
+                      <option value="1">广州</option>
+                      <option value="2">深圳</option>
+                   </optgroup>
+                  <optgroup label="其他">
+                     <option value="3">长沙</option>
+                     <option value="4">香港</option>
+                 </optgroup>
+            </select>
+                  
+                  
+                
+                  
+                      
   
   
   
