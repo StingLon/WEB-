@@ -124,7 +124,8 @@ HTML：
             </select>
                   
         (14)div+span       结合CSS      
-                
+                div  块结构
+                span 对其中内容优化
                   
                       
   
