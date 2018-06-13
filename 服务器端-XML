@@ -2,3 +2,28 @@
 
 
 XML
+
+可扩展标记语言
+
+1.语法
+注释  <!--      -->
+
+2.XML DTD约束
+ dtd  ：文档类型定义
+ 
+ （1）校验是否遵循dtd文件：把xml和dtd放入eclipse中校验
+ （2）参照dtd文件写xml文件
+ 
+ 3.XML编程 （XML的CRUD操作）
+   （1）XML解析方式：dom（文档对象模型）、sax
+        dom和sax区别：
+          dom对文档crud快，但占内存大
+          sax适合读取，但不适合CRUD
+        
+    (2)解析开发包：Jaxp、Jdom、dom4j
+        dom4j:优秀的java xml AP
+        使用需要下载dom4j开发包
+        
+   （3）调整jvm大小
+            虚拟机原本大小64M   即1024*1024 *64
+      run as----configurations----(x)=Argunents-----VM arguments中配置  例如：-Xmx80m     （等同于1024*1024 *80）
