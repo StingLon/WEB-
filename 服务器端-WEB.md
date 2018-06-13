@@ -11,6 +11,7 @@ WEB资源分为静态和动态
 3.浏览器把网站网址在Window的Host中是否知道网址IP，不知道再去找DNS中解析得到网址对应ip，通过IP网址转到相应网址
      （Host:window/system32/drivers/etc/hosts）
 
+这世界无需与人分享
 
 4.web资源访问图
     客户机机浏览器访问网站：1.询问本机window中host得到网址IP
@@ -35,47 +36,13 @@ WEB资源分为静态和动态
              b.请求头
              c.空行
              d.请求数据
-
-   ![](https://github.com/StingLon/WEB-/blob/master/%E5%93%8D%E5%BA%94.png)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+             
+   (3)http响应        代表服务器向客户端回送的数据
+           格式：   状态行
+                   多个响应头
+                   一个空行
+                   实体内容
+                   
+    ![](https://github.com/StingLon/WEB-/blob/master/%E5%93%8D%E5%BA%94.png)
+   
+   
