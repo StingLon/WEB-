@@ -11,9 +11,9 @@ WEB资源分为静态和动态
 3.浏览器把网站网址在Window的Host中是否知道网址IP，不知道再去找DNS中解析得到网址对应ip，通过IP网址转到相应网址
      （Host:window/system32/drivers/etc/hosts）
 
-这世界无需与人分享
 
-4.web资源访问图
+
+4.web资源访问
     客户机机浏览器访问网站：1.询问本机window中host得到网址IP
                           2.没有从host中得到的话就会再从DNS找IP
                           3.得到IP后连接网站服务器端
