@@ -36,7 +36,7 @@ WEB资源分为静态和动态
      空行
      请求数据
 
-
+    ！[](https://github.com/StingLon/WEB-/blob/master/%E5%93%8D%E5%BA%94.png)
 
 
 
