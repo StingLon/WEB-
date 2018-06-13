@@ -14,5 +14,10 @@ WEB资源分为静态和动态
      （Host:window/system32/drivers/etc/hosts）
 
 
-4.
-！[图片]（https://github.com/StingLon/WEB-/blob/master/%60%40XH5%5B4Y5%40HJMS187WA4U8D.png）
+4.web资源访问图
+    例如查询   http://www.baidu.com.cn/mail/1.html
+                           ↓
+                           ↓
+   windows.hosts文件   ←1. ←ie
+                           ↓
+          dns服务器    ←2.← ↓
