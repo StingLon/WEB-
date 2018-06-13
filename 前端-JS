@@ -6,6 +6,8 @@ javaScript
 
 与java无关
 
+参考手册：W3School
+
 分为三部分： 
   1.核心（ECMAScript）：包含语法、关键字等
   2.文档对象模型（DOM）：整个html页面的内容
@@ -13,11 +15,15 @@ javaScript
   
   
   
-  1.（1）获取元素内容：
+  1.ECMAScript:
+  （1）获取元素内容：
       document.getElementById(id);
       document.getElementById(id).value;
 
-
+ 2.BOM:
+    Windon: confirm  ...
+    History: history.go(1)/history.bacak
+    Location:...
 
 
 
@@ -47,7 +53,7 @@ javaScript
       </head>  
       
       <body>
-     <form action="#" method="get" name="regForm" onsubmit="return checkFrom()"> //submit的应用 
+     <form action="#" method="get" name="regForm" onsubmit="return checkFrom()"> //submit的应用写法
       <tablke>
       ...
       ...
@@ -95,8 +101,47 @@ javaScript
         
     案例3：定时显示广告   
         
-        
-        
+    案例4：隔行换色
+		<script>
+			window.onload=function(){
+			//1.获取表格
+			var eT=	document.getElementById("t1");
+			//2.tbody的行数长度
+		        var len=eT.tBodies[0].rows.length;
+			//3.遍历
+			for(var i=0;i<len;i++){
+			if(i%2==0){
+				//对偶数行设置颜色
+				eT.tBodies[0].rows[i].style.backgroundColor="pink";
+			}else{
+				//对奇数行设置颜色
+				eT.tBodies[0].rows[i].style.backgroundColor="red";
+			}
+			}
+			}
+		</script>
+	
+       案例5：全选和全不选
+          	<script>
+	          	function checkall() {
+			var ch = document.getElementById("checkall");
+			if (ch.checked == true) {
+			    var cheoneOne = document.getElementsByName("checkone");
+			    for (var i = 0; i < cheoneOne.length; i++) {
+			         cheoneOne[i].checked = true;
+			     }
+			} else {
+				var cheoneOne = document.getElementsByName("checkone");
+				for (var i = 0; i < cheoneOne.length; i++) {
+				cheoneOne[i].checked = false;
+					}
+			      }
+			}
+		</script>
+
+        案例6：省市二级联动
+	
+	
         
         
         
