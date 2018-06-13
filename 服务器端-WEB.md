@@ -16,3 +16,4 @@ WEB资源分为静态和动态
 
 4.web资源访问图
    ![](https://github.com/StingLon/WEB-/blob/master/web%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE1.png)
+   ![](https://github.com/StingLon/WEB-/blob/master/web%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE2.png)
