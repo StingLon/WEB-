@@ -21,3 +21,4 @@ WEB资源分为静态和动态
    windows.hosts文件   ←1. ←ie
                            ↓
           dns服务器    ←2.← ↓
+   ![](https://github.com/StingLon/WEB-/blob/master/web%E8%B5%84%E6%BA%90%E8%AE%BF%E9%97%AE1.png)
