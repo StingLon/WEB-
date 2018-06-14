@@ -49,7 +49,7 @@ Servlet其中的API:servletConfig、servletContext
   作用： 用于封装servlet的配置信息
   
 2.servletContext
-  servletContext对象通常称为context域对象
+  servletContext对象通常称为context域对象，  全局域对象
 
   servletContex的方法  ： context= this.getServletContext();
  
