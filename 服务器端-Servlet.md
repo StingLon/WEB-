@@ -1,5 +1,7 @@
 Servlet  以及相关API （servletConfig、servletContext）
 
+Servlet 是在服务器上运行的服务连接器
+
 一种开发动态web资源的技术
 
 1.运行过程：
@@ -25,7 +27,15 @@ Servlet  以及相关API （servletConfig、servletContext）
     同步线程可行但不方便，因此使用接口SingleThreadMode方式 ，不能抛异常，只能try-catch
 
 
-
+5.web.XML配置
+例如：
+   <servlet-name>ServletDemo1</servlet-name>
+    <servlet-class>web1.ServletDemo1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo1</servlet-name>
+    <url-pattern>/*</url-pattern>
+  </servlet-mapping>
 
 
 
