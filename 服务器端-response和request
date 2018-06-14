@@ -1,1 +1,67 @@
+response   request
 
+
+
+
+response(响应) 应用
+1.输出
+  例：  	 response.setContentType("text/html;charset=UTF-8");		
+            		String date = "中国";
+            		PrintWriter out =response.getWriter();
+                out.write(date);
+
+2.下载
+  例： WEB2/ResponeDemo1
+
+3.验证码：  随机生成图片，用于验证码(servelt方法)
+  WEB2/ ResponseDemo2
+   
+4.定时刷新，转发
+   WEB2/ResponseDemo3
+   
+ 5.控制浏览器缓存
+    //缓存一小时  ，1000*3600  一小时
+		response.setDateHeader("exprise", 1000);
+	
+		String date="aaaaaa";
+		response.getWriter().write(date);
+    
+ 6.response 请求重定向
+   例如：response.sendRedirect("/WEB2/index.jsp");
+   重定向特点：1.浏览器会向服务器发送两次，意味这有两个request/response
+              2.重定向技术会让浏览器地址发生变化
+              3.response 中getOutStream()和getWrite()不能同时用
+ 
+ 
+ 
+ 
+ 
+ 
+ request应用
+ 1. request转发
+     地址栏不会变化，浏览器一次请求
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
