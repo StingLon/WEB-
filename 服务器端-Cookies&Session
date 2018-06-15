@@ -5,28 +5,43 @@ Cookies&Session
 保存会话数据的两种技术：
 Cookie     客户端技术
 Sesssion   服务端技术
+ 
+ 区别：
+ cookie是把用户的数据写给用户的浏览器
+ session技术是把用户的数据写到用户独占的seesion中
 
 
 
 1.Cookie
-  
-
-
-
+  每个cookie的大小限制为4kB
+  没有设置有效期那么浏览器关闭cookie数据消
 
 
 
 
 
 2.Sesssion
+ 一个浏览器独占一个session对象
+ session由服务器创建，开发人员调用request对象的getsession方法得到session对象
+ 周期：request.getSession（）时创建session，不管浏览器是否关闭，在三十分钟后自动摧毁session(三十分钟周期可以更改)
+     
+ session原理：request.getSession()方法创建session，同时生成sessionId,cokkie带sessionId返回浏览器保存，下次浏览器访问时根据id调用对应的seesion
+  （所以说sessin是基于cookie）
+
+案例1：用户登录
+案例2：防止表单重复提交
 
 
 
 
 
 
+三个域对象
+session、servletContext、request
 
-
+request容器：当程序产生数据后如果显示后没有用了就用requst
+session：产生数据后除了显示等一会要用到则session
+servletContext:不仅等一会还要给别人用（例如聊天室）
 
 
 
