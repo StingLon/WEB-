@@ -1,1 +1,92 @@
+JSP
+
+JAVA SERVER PAGES
+和servlet技术一样都是用于动态开发web页面的技术
+
+运行原理：servlet通过request.Attribute（）用forward转发给jsp
+
+语法：
+         什么让jsp有自己的方法：<% !       (方法)      %>
+
+         注释方法:  jsp: <%--        --%>
+                   html/xml: <!--   -->
+
+JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其他部分。     格式：  <$@ 指令 属性名="值" %>
+         1.page指令         (head前添加)
+         2.include指令      (body中添加)
+              静态包含： <%@ include file="路径" %>           
+              动态包含： <%   request.getRequestDispathcer("路径").include(request,response);     %> 
+             
+             区别：动态包含是运行时包含把所有JSP编程成单独的servlet，静态包含是编译时包含把所有JSP编译成一个servlet，效率比动态好
+                  
+         3.taglib指令（导入标签库使用 ：<%@ taglib uri="/struts-tags"  prefix="s"%>   ）
+  
+  
+(*)九大隐式对象：
+Request   
+Response
+Session
+Application
+Config
+Page
+Exception
+Out
+pageContext    （代表JSP页面的运行环境，可以调用方法获取其他对象，例如.getRequest()返回request对象）
+
+
+
+JSP常用标签：
+1.<jsp:forward page="路径"></jsp:forward>
+2.<jsp:include page="路径"></jsp:include>
+3.<jsp:param page=""></jsp:param>
+
+
+JSP映射
+web.xml中配置     (运行b.jsp结果映射到运行a.jsp)
+              <servlet>
+               <servlet-name>xxx</servlet-name>
+               <jsp-file>/a.jsp</jsp:file>
+              </servlet> 
+              
+              <servlet-mapping>
+                <servlet-name>xxxx</servlet-name>
+                <url-pattern>/b.jsp</url-pattern>
+              </servlet-mapping>
+
+
+
+
+JSP错误处理：
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
