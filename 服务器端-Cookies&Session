@@ -36,14 +36,16 @@ Sesssion   服务端技术
 
 
 
-三个域对象
-session、servletContext、request
+（*）四个域对象
+session（session域）、servletContext（application域）、request（reqeust域）、pageContext(page域)
 
 request容器：当程序产生数据后如果显示后没有用了就用requst
 session：产生数据后除了显示等一会要用到则session
 servletContext:不仅等一会还要给别人用（例如聊天室）
 
+生命周期：
 
+使用情况：
 
 
 
