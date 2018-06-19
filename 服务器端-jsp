@@ -56,8 +56,10 @@ web.xml中配置     (运行b.jsp结果映射到运行a.jsp)
 
 
 
-JSP错误处理：
-
+JSP两种技术
+1.el
+  ${}
+2.JSTL
 
 
 
