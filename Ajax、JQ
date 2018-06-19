@@ -7,7 +7,7 @@ Ajax  and   JQuery
 JQuery
 是一个javascript代码仓库，我们称之为javascript框架
 
-作用:提高了代码的效率。可以简化查询DOM对象、处理事件、制作动画、处理Ajax交互过程
+作用:提高了代码的效率。利用css选择器查找DOM对象,对其操作，操作样式或者增删方法等
 
 功能： （1）HTML元素提取
       （2）HTML元素操作
@@ -157,12 +157,6 @@ removeAttr(name)        //若属性不存在，返回undefined
  
 5prop方法
 针对checked、selected、disabled这些单属性（boolean类型），其他同attr
-
-
-
-
-
-
 
 
 
