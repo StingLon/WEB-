@@ -7,6 +7,9 @@ Ajax           Asynchronous JavaScript and XML
 
 异步现象：客户端发送请求到服务端，无论服务是否返回响应，客户端都可以随意做其他事情，不会卡死。
 
+JS原生Ajax
+总结：所有的异步访问都是ajax引擎
+
 例如：
 function checkUsername(){
 		// 获得文件框值:
@@ -50,9 +53,17 @@ function checkUsername(){
 
 
 
+Json数据格式
+ 
+是一种数据交换的格式，使用AJax进行前后端数据交换 
+
+Json是js的原生内容，也就意味着js可以直接取出json对象中的数据
 
 
-
+Jquery是JS框架自然对js原生的ajax进行了封装，封装后的ajax操作更简洁更强大
+三种重要的方法：
+1.get
+2.post
 
 
 
