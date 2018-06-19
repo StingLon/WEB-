@@ -1,7 +1,7 @@
 JSP
 
 JAVA SERVER PAGES
-和servlet技术一样都是用于动态开发web页面的技术
+和servlet技术一样都是用于动态开发web页面的技术,jsp本质是servlet
 
 运行原理：servlet通过request.Attribute（）用forward转发给jsp
 
@@ -23,15 +23,15 @@ JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其�
   
   
 (*)九大隐式对象：
-Request   
-Response
-Session
-Application
-Config
-Page
-Exception
-Out
-pageContext    （代表JSP页面的运行环境，可以调用方法获取其他对象，例如.getRequest()返回request对象）
+Request        （得到用户请求信息）
+Response       （服务器向客户端的回应信息）
+Session        （用来保存用户信息）
+Application    （所有用户的共享信息）
+Config         （服务器配置，可以取得初始化参数）
+Page           （指当前页面转换后的servlet类的实例）
+Exception      （错误页面中使用）
+Out            （用于页面输出）
+pageContext    （JSP页面容器，可以调用方法获取其他对象，例如.getRequest()返回request对象）
 
 
 
