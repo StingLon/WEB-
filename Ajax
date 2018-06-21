@@ -9,7 +9,14 @@ Ajax           Asynchronous JavaScript and XML
 
 JS原生Ajax
 总结：所有的异步访问都是ajax引擎
+步骤：
+1.创建ajax引擎对象
+2.设置监听
+3.绑定地址      ture代表异步
+4.发送
+5.响应数据
 
+ 
 例如：
 function checkUsername(){
 		// 获得文件框值:
@@ -58,6 +65,21 @@ Json数据格式
 是一种数据交换的格式，使用AJax进行前后端数据交换 
 
 Json是js的原生内容，也就意味着js可以直接取出json对象中的数据
+
+两种格式：
+1.对象格式：       
+<script type="text/javascript">
+var person={"name":"sd","age":11};
+alert(person.name);
+alert(person.age);
+</script>
+
+2.数组格式：
+[{"id":1,"name":"ss"},{},{}]
+
+
+
+
 
 
 Jquery是JS框架自然对js原生的ajax进行了封装，封装后的ajax操作更简洁更强大
