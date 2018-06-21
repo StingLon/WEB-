@@ -83,14 +83,17 @@ alert(person.age);
 
 
 Jquery是JS框架自然对js原生的ajax进行了封装，封装后的ajax操作更简洁更强大
-三种重要的方法：
-1.get
-2.post
+其中三种常用的方法：
+1.  $.get(url,[data],[callback],[type])：
+2.  $.post(url,[data],[callback],[type])
+3.  $.ajax({option1:value,option2:value2...});
 
-
-
-
-
+注解：
+url:
+代表服务请求的服务器端地址
+data:代表请求服务器的数据
+callback：表示服务器端成功响应触发的函数（只有正常成功返回才执行）
+type:表示服务器返回的数据类型(jquery会根据指定的类型自动类型转换)
 
 
 
