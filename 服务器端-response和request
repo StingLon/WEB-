@@ -5,11 +5,23 @@ response   request
 
 response(响应) 应用
 1.输出
-  例：  	 response.setContentType("text/html;charset=UTF-8");		
+  例：              编码问题;
+                   1. response.setContentType("text/html;charset=UTF-8");		
             		String date = "中国";
             		PrintWriter out =response.getWriter();
-                out.write(date);
+                     out.write(date);
+		
+ 
+		 2.response.getoutputstream().write("".getbtyes());
+		 
+		 
+		 3.       //设置浏览器用UTF-8编码显示数据，
+                    response.setContentType("text/html;charset=UTF-8");
 
+                    //获取到printWriter对象
+                     PrintWriter printWriter = response.getWriter();
+                     printWriter.write("看完博客点赞！");
+ 
 2.下载
   例： WEB2/ResponeDemo1
 
@@ -33,7 +45,8 @@ response(响应) 应用
               3.response 中getOutStream()和getWrite()不能同时用
  
  
- 
+ 7.实现数据压缩
+
  
  
  
