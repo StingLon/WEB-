@@ -79,14 +79,40 @@ getParameterNames方法
 getParameterMap方法
  
  
- 
+ 常见的get方式提交数据有：使用超链接，sendRedirect()
  
  
  1. request转发
-     地址栏不会变化，浏览器一次请求
+    
+     使用response的sendRedirect()可以实现重定向，做到的功能是页面跳转，
+     使用request的getRequestDispatcher.forward(request,response)实现转发，做到的功能也是页面跳转，他们有什么区别呢
+     
  
  2.中文乱码
+  为什么post方式设置了request编码就可以解决乱码问题，而get方式不能呢
+  
+ post方法是怎么进行参数传递的。当我们点击提交按钮的时候，数据封装进了Form Data中，**http请求中把实体主体带过去了【传输的数据称之为实体主体】
+ 既然request对象封装了http请求，所以request对象可以解析到发送过来的数据，于是只要把编码设置成UTF-8就可以解决乱码问题了
+ request.setCharacterEncoding("UTF-8");
  
+ 而get方式不同，它的数据是从消息行带过去的，没有封装到request对象里面，所以使用request设置编码是无效的。
+         //此时得到的数据已经是被ISO 8859-1编码后的字符串了，这个是乱码
+        String name = request.getParameter("username");
+        //乱码通过反向查ISO 8859-1得到原始的数据
+        byte[] bytes = name.getBytes("ISO8859-1");
+        //通过原始的数据，设置正确的码表，构建字符串
+        String value = new String(bytes, "UTF-8");
+get方式还可以改Tomcat服务器的配置来解决乱码，但是不推荐使用，这样不灵活。
+    <Connector port="8080" protocol="HTTP/1.1" 
+               connectionTimeout="20000" 
+               redirectPort="8443" URIEncoding="utf-8"/>
+	       
+总结：
+post方式直接改request对象的编码
+get方式需要手工转换编码
+get方式也可以修改Tomcat服务器的编码，不推荐，因为会太依赖服务器了！
+提交数据能用post就用post
+	    
  
  3.防盗链（设计网投、网尾）
  例子：
@@ -103,8 +129,14 @@ getParameterMap方法
         response.getWriter().write("路飞做了XXXXxxxxxxxxxxxxxxxx");
  
  
+4.request的域
+request的域仅仅代表一次http请求
+
+一般的原则：可以使用request就尽可能使用request。因为ServletContext代表着整个web应用，使用ServletContext会消耗大量的资源，
+而request对象会随着请求的结束而结束，资源会被回收。使用request域进行Servlet之间的通讯在开发中是非常频繁的
+	
  
- 4.MVC设计模式
+ MVC设计模式
  
  
  
