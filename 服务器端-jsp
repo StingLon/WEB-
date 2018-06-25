@@ -53,22 +53,21 @@ JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其�
  //5.javaBean行为
   
   
-  
-  
+
   
   
   
   
 (*)九大隐式对象：
-Request        （得到用户请求信息）
-Response       （服务器向客户端的回应信息）
-Session        （用来保存用户信息）             内置对象session其实就是HttpSession
-Application    （所有用户的共享信息）           内置对象application其实就是ServletContext对象
+Request        用户端请求，此请求会包含来自GET/POST请求的参数
+Response       （网页传回用户端的回应）
+Session        （用来保存用户信息 ,与请求有关的会话期)           内置对象session其实就是HttpSession
+Application    （正在执行的内容）           内置对象application其实就是ServletContext对象
 Config         （服务器配置，可以取得初始化参数）
-Page           （指当前页面转换后的servlet类的实例）        page对象相当于普通java类的this
+Page           （指当前页面转换后的servlet类的实例 JSP网页本身)       page对象相当于普通java类的this
 Exception      （错误页面中使用）                         java.lang.Exception类的对象
 Out            （用于页面输出）
-pageContext    （JSP页面容器，可以调用方法获取其他八个对象，例如.getRequest()返回request对象）           代表着JSP页面编译后的内容，当前JSP页面
+pageContext     (页的属性是在这里管理，代表的编译后JSP内容，例如.getRequest()返回request对象）           代表着JSP页面编译后的内容，当前JSP页面
              
        
 pageContext  的方法：
