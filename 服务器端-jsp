@@ -2,6 +2,9 @@ JSP
 
 JAVA SERVER PAGES
 和servlet技术一样都是用于动态开发web页面的技术,jsp本质是servlet
+java服务器页面。JSP是一种基于文本的程序，其特点就是HTML和Java代码共同存在
+
+JSP是为了简化Servlet的工作出现的替代品，Servlet输出HTML非常困难，JSP就是替代Servlet输出HTML的。
 
 运行原理：servlet通过request.Attribute（）用forward转发给jsp
 
@@ -14,12 +17,27 @@ JAVA SERVER PAGES
 JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其他部分。     格式：  <$@ 指令 属性名="值" %>
          1.page指令         (head前添加)
          2.include指令      (body中添加)
-              静态包含： <%@ include file="路径" %>           
-              动态包含： <%   request.getRequestDispathcer("路径").include(request,response);     %> 
+              静态包含： <%@ include file="路径" %>            把文件的代码内容都包含进来，再编译    
+              动态包含：  <jsp:include page=""/> 
              
-             区别：动态包含是运行时包含把所有JSP编程成单独的servlet，静态包含是编译时包含把所有JSP编译成一个servlet，效率比动态好
-                  
+             区别：动态包含是运行时包含把所有JSP编程成单独的servlet，静态包含是编译时包含把所有JSP编译成一个servlet，效率比动态好          
+               【如果有相同名称的参数，使用静态包含就会报错！】！
+                                   
          3.taglib指令（导入标签库使用 ：<%@ taglib uri="/struts-tags"  prefix="s"%>   ）
+  
+  
+  JSP常用标签（行为）
+  1.include行为            <jsp:include page=""/>   include行为是动态包含
+  2.param行为              <jsp:param page="">      当使用jsp:include和jsp:forward行为引入或将请求转发给其它资源时，可以使用jsp:param行为向这个资源传递参数。
+  例：    <jsp:forward page="head.jsp">
+           <jsp:param name="username" value="zhongfucheng"/>
+         </jsp:forward>
+  
+  3.forward行为            <jsp:forward page=""/>    其实forward行为就是对其封装！
+ 
+ //4.directive行为
+ //5.javaBean行为
+  
   
   
 (*)九大隐式对象：
