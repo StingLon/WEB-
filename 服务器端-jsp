@@ -43,20 +43,27 @@ JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其�
 (*)九大隐式对象：
 Request        （得到用户请求信息）
 Response       （服务器向客户端的回应信息）
-Session        （用来保存用户信息）
-Application    （所有用户的共享信息）
+Session        （用来保存用户信息）             内置对象session其实就是HttpSession
+Application    （所有用户的共享信息）           内置对象application其实就是ServletContext对象
 Config         （服务器配置，可以取得初始化参数）
-Page           （指当前页面转换后的servlet类的实例）
-Exception      （错误页面中使用）
+Page           （指当前页面转换后的servlet类的实例）        page对象相当于普通java类的this
+Exception      （错误页面中使用）                         java.lang.Exception类的对象
 Out            （用于页面输出）
-pageContext    （JSP页面容器，可以调用方法获取其他对象，例如.getRequest()返回request对象）
+pageContext    （JSP页面容器，可以调用方法获取其他八个对象，例如.getRequest()返回request对象）           代表着JSP页面编译后的内容，当前JSP页面
+       
+       
+       
+       
+pageContext  的方法：
+setAttribute(String name,Objcet o)
+getAttribute(String name)
+removeAttribute(String name)
+findAttribute(String name)
 
+PageContext类中定义了一个forward方法和两个include方法来分别简化和替代RequestDispatcher.forward方法和include方法。
+pageContext.forward(String url)
+pageContext.include(String url)
 
-
-JSP常用标签：
-1.<jsp:forward page="路径"></jsp:forward>
-2.<jsp:include page="路径"></jsp:include>
-3.<jsp:param page=""></jsp:param>
 
 
 JSP映射
