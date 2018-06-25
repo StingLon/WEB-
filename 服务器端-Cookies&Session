@@ -66,6 +66,7 @@ domain属性决定运行访问Cookie的域名。
 
 
 
+
 5.Cookie的路径
 setPath与getPath方法
 一般地，Cookie发布出来，整个网页的资源都可以使用。现在我只想Servlet1可以获取到Cookie，其他的资源不能获取。
@@ -101,6 +102,11 @@ cookie.setPath("/Servlet1");
 		cookie.setPath("/WEB3");
 		response.addCookie(cookie);
 
+（2）显示浏览过的商品
+
+
+
+
 
 
 
@@ -110,13 +116,77 @@ cookie.setPath("/Servlet1");
 2.Sesssion
  一个浏览器独占一个session对象
  session由服务器创建，开发人员调用request对象的getsession方法得到session对象
- 周期：request.getSession（）时创建session，不管浏览器是否关闭，在三十分钟后自动摧毁session(三十分钟周期可以更改)
+ 
+ Session比Cookie使用方便，Session可以解决Cookie解决不了的事情   ：Session可以存储对象，Cookie只能存储字符串
+
+ 
+ 周期：request.getSession（）时创建session，不管浏览器是否关闭，在三十分钟后自动摧毁session
+ (三十分钟周期可以更改  方法：1.在tomcat/conf/web.xml文件中设置  2.在单个的web.xml文件中设置 3.通过setMaxInactiveInterval()方法设置
      
  session原理：request.getSession()方法创建session，同时生成sessionId,cokkie带sessionId返回浏览器保存，下次浏览器访问时根据id调用对应的seesion
   （所以说sessin是基于cookie）
+  当禁用cookie时session不可用，但是Java Web提供了解决方法：URL地址重写 （URL地址重写的原理：将Session的id信息重写到URL地址中）
+
+
+
+Session  API:
+long getCreationTime();【获取Session被创建时间】
+String getId();【获取Session的id】
+long getLastAccessedTime();【返回Session最后活跃的时间】
+ServletContext getServletContext();【获取ServletContext对象】
+void setMaxInactiveInterval(int var1);【设置Session超时时间】
+int getMaxInactiveInterval();【获取Session超时时间】
+Object getAttribute(String var1);【获取Session属性】
+Enumeration
+ getAttributeNames();【获取Session所有的属性名】
+void setAttribute(String var1, Object var2);【设置Session属性】
+void removeAttribute(String var1);【移除Session属性】
+void invalidate();【销毁该Session】
+boolean isNew();【该Session是否为新的】
+
+
+
 
 案例1：用户登录
 案例2：防止表单重复提交
+<script type="text/javascript">
+        //定义一个全局标识量：是否已经提交过表单数据
+        var isCommitted = false;
+        function doSubmit() {
+            //false表示的是没有提交过，于是就可以让表单提交给Servlet
+            if(isCommitted==false) {
+                isCommitted = true;
+                return true;
+            }else {
+                return false;
+            }
+        }
+    </script>
+
+
+
+
+Session和Cookie的区别
+1.存储方式上比较
+Cookie只能存储字符串，如果要存储非ASCII字符串还要对其编码。
+Session可以存储任何类型的数据，可以把Session看成是一个容器
+
+2.从隐私安全上比较
+Cookie存储在浏览器中，对客户端是可见的。信息容易泄露出去。如果使用Cookie，最好将Cookie加密
+Session存储在服务器上，对客户端是透明的。不存在敏感信息泄露问题
+
+3.从对服务器的负担比较
+Session是保存在服务器的，每个用户都会产生一个Session，如果是并发访问的用户非常多，是不能使用Session的，Session会消耗大量的内存。
+Cookie是保存在客户端的。不占用服务器的资源。像baidu、Sina这样的大型网站，一般都是使用Cookie来进行会话跟踪
+
+4.从跨域名上比较
+Cookie可以设置domain属性来实现跨域名
+Session只在当前的域名内有效，不可夸域名
+
+
+
+
+
 
 
 
