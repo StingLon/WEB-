@@ -35,17 +35,71 @@ getName方法
         response.addCookie(cookie);
         response.getWriter().write("我已经向浏览器发送了一个Cookie");
     
-    
+2.设置时间    
 没有设置有效期那么浏览器关闭cookie数据消     ，不设置时间不会显示cookie文本
-     //设置Cookie的时间
-        cookie.setMaxAge(1000);
+Cookie的有效期是通过setMaxAge()来设置的。
+如果MaxAge为正数，浏览器会把Cookie写到硬盘中，只要还在MaxAge秒之前，登陆网站时该Cookie就有效【不论关闭了浏览器还是电脑】
+如果MaxAge为负数，**Cookie是临时性的，仅在本浏览器内有效，关闭浏览器Cookie就失效了，Cookie不会写到硬盘中。Cookie默认值就是-1。这也就为什么在我第一个例子中，如果我没设置Cookie的有效期，在硬盘中就找不到对应的文件。
+如果MaxAge为0，则表示删除该Cookie。Cookie机制没有提供删除Cookie对应的方法，把MaxAge设置为0等同于删除Cookie
+  案例：
+  response.setContentType("text/html;charset=UTF-8");
+  PrintWriter printWriter = response.getWriter();
+		  String name = "看完博客就点赞";
+	        //对Unicode字符进行编码
+	        Cookie cookie = new Cookie("country", URLEncoder.encode(name, "UTF-8"));
+	        //一定不要忘记添加到浏览器中
+	        cookie.setMaxAge(0);
+	        response.addCookie(cookie);
+	        printWriter.write("我删除了该Cookie");
       
-      
- 每个cookie的大小限制为4kB
-  
+          
+ 3.每个cookie的大小限制为4kB
+ 
+4. 
 Cookie具有不可跨域名性：
 浏览器判断一个网站是否能操作另一个网站的Cookie的依据是域名。
 所以一般来说，当我访问baidu的时候，浏览器只会把baidu颁发的Cookie带过去，而不会带上google的Cookie。
+
+domain属性决定运行访问Cookie的域名。
+要想实现不同域名相互访问：cookie.setDomain（）方法
+例：cookie.setDomain(".zhongfucheng.com");
+
+
+
+5.Cookie的路径
+setPath与getPath方法
+一般地，Cookie发布出来，整个网页的资源都可以使用。现在我只想Servlet1可以获取到Cookie，其他的资源不能获取。
+cookie.setPath("/Servlet1");
+
+
+6.HTTP协议不仅仅是无状态的，而且是不安全的！如果不希望Cookie在非安全协议中传输，可以设置Cookie的secure属性为true
+
+7.案例
+（1）显示上次时间
+// 防止乱码
+		response.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
+
+		// 建立输出流
+		PrintWriter out = response.getWriter();
+		out.print("上次访问时间：    <br/>");
+
+		// 获取COOKIE时间
+		Cookie[] cookies = request.getCookies();
+		for (int i = 0; cookies != null && i < cookies.length; i++) {
+			if (cookies[i].getName().equals("lastAccessTime")) {
+				long cookiesvalue = Long.parseLong(cookies[i].getValue());
+
+				Date date = new Date(cookiesvalue);
+				out.print(date.toLocaleString());
+			}
+		}
+		// 数据发送到浏览器并设置
+		Cookie cookie = new Cookie("lastAccessTime", System.currentTimeMillis()
+				+ "");
+		cookie.setMaxAge(1 * 30 * 24 * 3600);
+		cookie.setPath("/WEB3");
+		response.addCookie(cookie);
 
 
 
