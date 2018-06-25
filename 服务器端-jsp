@@ -1,3 +1,6 @@
+本片包括：jsp、javabean、el、jstl 自定义标签
+
+
 JSP
 
 JAVA SERVER PAGES
@@ -12,7 +15,14 @@ JSP是为了简化Servlet的工作出现的替代品，Servlet输出HTML非常�
          什么让jsp有自己的方法：<% !       (方法)      %>
 
          注释方法:  jsp: <%--        --%>
-                   html/xml: <!--   -->
+                 html/xml: <!--   -->
+
+
+
+
+
+
+
 
 JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其他部分。     格式：  <$@ 指令 属性名="值" %>
          1.page指令         (head前添加)
@@ -26,6 +36,11 @@ JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其�
          3.taglib指令（导入标签库使用 ：<%@ taglib uri="/struts-tags"  prefix="s"%>   ）
   
   
+  
+  
+  
+  
+  
   JSP常用标签（行为）
   1.include行为            <jsp:include page=""/>   include行为是动态包含
   2.param行为              <jsp:param page="">      当使用jsp:include和jsp:forward行为引入或将请求转发给其它资源时，可以使用jsp:param行为向这个资源传递参数。
@@ -34,9 +49,13 @@ JSP指令： 为TOMCAT设计，只是告诉tomcat如何处理JSP页面中的其�
          </jsp:forward>
   
   3.forward行为            <jsp:forward page=""/>    其实forward行为就是对其封装！
- 
  //4.directive行为
  //5.javaBean行为
+  
+  
+  
+  
+  
   
   
   
@@ -50,9 +69,7 @@ Page           （指当前页面转换后的servlet类的实例）        page�
 Exception      （错误页面中使用）                         java.lang.Exception类的对象
 Out            （用于页面输出）
 pageContext    （JSP页面容器，可以调用方法获取其他八个对象，例如.getRequest()返回request对象）           代表着JSP页面编译后的内容，当前JSP页面
-       
-       
-       
+             
        
 pageContext  的方法：
 setAttribute(String name,Objcet o)
@@ -66,28 +83,78 @@ pageContext.include(String url)
 
 
 
-JSP映射
-web.xml中配置     (运行b.jsp结果映射到运行a.jsp)
-              <servlet>
-               <servlet-name>xxx</servlet-name>
-               <jsp-file>/a.jsp</jsp:file>
-              </servlet> 
-              
-              <servlet-mapping>
-                <servlet-name>xxxx</servlet-name>
-                <url-pattern>/b.jsp</url-pattern>
-              </servlet-mapping>
+
+
+
+4种属性;
+page【只在一个页面中保存属性，跳转页面无效】
+requet【只在一次请求中保存属性，服务器跳转有效，浏览器跳转无效】
+session【在一个会话范围中保存属性，无论何种跳转均有效，关闭浏览器后无效】
+application【在整个服务器中保存，所有用户都可以使用】
+
+
+
+
+
+
 
 
 
 
 JSP两种技术
 1.el
-  ${}
 2.JSTL
+
+1.EL        表达式语言   
+EL表达式是用"${}"括起来的脚本，用来更方便的读取对象
+EL表达式主要用来读取数据，进行内容的显示！
+
+语法：${标识符}
+EL表达式如果找不到相应的对象属性，返回的的空白字符串“”，而不是null，这是EL表达式最大的特点！
+
+
+
+2.JSTL                  JSP Standard Tag Library 即JSP标准标签库。
+为什么要使用JSTL
+EL表达式不够完美，需要JSTL的支持
+
+使用JSTL标签库步骤：
+1.导入jstl.jar和standard.jar开发包
+2.在JSP页面中用tablib指令引入需要用到的JSTL标签
+
+core标签库
+core标签库是JSTL的核心标签库，实现了最基本的功能：流程控制、迭代输出等操作！          core标签库的前缀一般是c
+c:out
+c:set
+c:remove
+c:catch
+c:if
+c:choose
+c:forEach
+c:forTokens
+c:import
+c:param
+c:url
+c:redirect
+
+fmt标签库             fmt标签库也叫做国际化标签库
+
+
+
+
+
+
 
 
 自定义标签
+JSTL标签库只提供了简单的输出等功能，没有实现任何的HTML代码封装，并且某些复杂类型转换，或者逻辑处理的时候，JSTL标签库完成不了，需要自定义标签!
+
+
+编写自定义标签的步骤：
+编写一个实现Tag接口的Java类【标签处理器类】
+在WEB-INF目录下创建tld(Tag Library Descriptor)文件，在tld文件中对标签处理类（实现Tag接口的Java类）进行描述
+
+tag。。。。
 
 
 
@@ -99,9 +166,32 @@ JSP两种技术
 
 
 
+JAVABEAN
+JavaBean就是一个普通的java类，也称之为简单java对象--POJO（Plain Ordinary Java Object），
+是Java程序设计中一种设计模式，是一种基于 Java 平台的软件组件思想
+
+通常有以下的规则：
+有无参的构造函数
+成员属性私有化
+封装的属性如果需要被外所操作，必须编写public类型的setter、getter方法
 
 
+使用javaBean的好处就是：封装，重用,可读！
 
+
+JSP标签--JavaBean
+jsp:useBean【在JSP页面中查找javaBean对象或者实例化javaBean对象】
+jsp:setProperty【设置javaBean的属性】
+jsp:getProperty【获取javaBean的属性】
+
+语法：    <jsp:useBean id="实例化对象的名称" class="类的全名" scope="保存范围"/>
+
+例：   <jsp:useBean id="person" class="domain.Person" scope="page"/>
+     <%
+        person.setName("zhongfucheng");
+        System.out.println(person.getName());
+     %>
+不用导包，不用new出对象，简化操作，传统方法要使用导入：    <%@ page import="domain.Person" %>
 
 
 
