@@ -9,7 +9,34 @@ java服务器页面。JSP是一种基于文本的程序，其特点就是HTML和
 
 JSP是为了简化Servlet的工作出现的替代品，Servlet输出HTML非常困难，JSP就是替代Servlet输出HTML的。
 
-运行原理：servlet通过request.Attribute（）用forward转发给jsp
+
+jsp和servlet的区别、共同点、各自应用的范围？
+JSP是Servlet技术的扩展，本质上就是Servlet的简易方式。JSP编译后是“类servlet”。
+Servlet和JSP最主要的不同点在于：Servlet的应用逻辑是在Java文件中，并且完全从表示层中的HTML里分离开来。而JSP的情况是Java和HTML可以组合成一个扩展名为.jsp的文件。
+JSP侧重于视图，Servlet主要用于控制逻辑。
+
+
+JSP是如何被执行的？执行效率比SERVLET低吗？
+当客户端向一个jsp页面发送请求时，Web Container将jsp转化成servlet的源代码（只在第一次请求时），然后编译转化后的servlet并加载到内存中执行，执行的结果response到客户端
+jsp只在第一次执行的时候会转化成servlet，以后每次执行，web容器都是直接执行编译后的servlet，所以jsp和servlet只是在第一次执行的时候不一样，jsp慢一点，以后的执行都是相同的
+
+
+jsp的缺点？
+1）不好调试
+2）可读性差
+
+
+JSP的设计模式：
+1.JSP+JavaBean设计模式。
+2.MVC ：
+显示层（View）：主要负责接受Servlet传递的内容，调用JavaBean，将内容显示给用户
+控制层（Controller）：主要负责所有用户的请求参数，判断请求参数是否合法，根据请求的类型调用JavaBean，将最终的处理结果交给显示层显示！
+模型层（Mode）：模型层包括了业务层，DAO层
+
+
+
+运行原理：当客户端向一个jsp页面发送请求时，Web Container将jsp转化成servlet的源代码（只在第一次请求时），然后编译转化后的servlet并加载到内存中执行,
+servlet通过request.Attribute（）用forward转发给jsp
 
 语法：
          什么让jsp有自己的方法：<% !       (方法)      %>
@@ -153,7 +180,10 @@ JSTL标签库只提供了简单的输出等功能，没有实现任何的HTML代
 编写一个实现Tag接口的Java类【标签处理器类】
 在WEB-INF目录下创建tld(Tag Library Descriptor)文件，在tld文件中对标签处理类（实现Tag接口的Java类）进行描述
 
-tag。。。。
+我们可以有两种方式来实现自定义标签：
+
+传统方式，实现Tag接口(老方法)
+简单方式，继承SimpleTagSupport类,   一般调用doTag方法或者实现SimpleTag接口
 
 
 
