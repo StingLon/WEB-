@@ -1,11 +1,27 @@
 JS原生Ajax和Jquery的Ajax
 
 
-Ajax           Asynchronous JavaScript and XML
+Ajax           Asynchronous JavaScript and XML        异步JavaScript和XML
 
 允许浏览器与服务器通信而无须刷新当前页面的技术
 
 异步现象：客户端发送请求到服务端，无论服务是否返回响应，客户端都可以随意做其他事情，不会卡死。
+
+为什么用ajax？   Ajax就是能够做到局部刷新！
+性能会有所降低(一点内容，刷新整个页面！)
+用户的操作页面会中断(整个页面被刷新了)
+
+
+XMLHttpRequest
+XMLHttpRequest对象是Ajax中最重要的一个对象。使用Ajax更多的是编写客户端代码，而不是服务端的代码。
+
+原理：
+当我们使用AJAX之后，浏览器是先把请求发送到XMLHttpRequest异步对象之中，异步对象对请求进行封装，
+然后再与发送给服务器。服务器并不是以转发的方式响应，而是以流的方式把数据返回给浏览器（因为不是转发的方式，所以是无刷新就能够获取服务器端的数据）
+
+
+
+
 
 JS原生Ajax
 总结：所有的异步访问都是ajax引擎
