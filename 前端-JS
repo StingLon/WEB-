@@ -10,7 +10,7 @@ javaScript
 
 分为三部分： 
   1.核心（ECMAScript）：包含语法、关键字等
-  2.文档对象模型（DOM）：整个html页面的内容
+  2.文档对象模型（DOM）：整个html页面的内容                   允许程序和脚本动态地访问和更新文档的内容
   3.浏览器对象模型（BOM）：整个浏览器相关内容
   
   
@@ -24,6 +24,48 @@ javaScript
     Windon: confirm  ...
     History: history.go(1)/history.bacak
     Location:...
+
+
+3.DOM（Document Object Model）文档对象模型，是语言和平台的中立接口。。
+允许程序和脚本动态地访问和更新文档的内容。
+
+为什么要使用DOM？
+Dom技术使得用户页面可以动态地变化，如可以动态地显示或隐藏一个元素，改变它们的属性，增加一个元素等，Dom技术使得页面的交互性大大地增强。
+
+
+
+
+
+javaScript变量可分为三种类型：
+基本类型【number、string、boolean】
+        javaScript是弱类型语言，在运行的时候才知道具体的类型是什么。所有类型都用var来修饰。
+特殊类型【null、undefined】
+        当定义了变量，没有任何赋值的时候，该变量就是undefined类型
+复合类型【数组、对象、函数】
+
+
+
+
+JavaScript中对象的类型可分为4种：
+
+内置对象【String、Math、Array】
+自定义对象【程序员自己创建的对象】
+浏览器对象【windows、document、history、status等等与浏览器相关的对象】
+ActiveXObject（XMLHttpRequest）对象【异步对象，使用AJAX用到的对象，使用该对象与服务器进行异步交互】
+
+
+
+function
+在JavaScript中， 一切皆是对象，函数也可以用一个对象来代表：Function
+        var youresult = new Function("num1","num2","return num1+num2");
+        alert( youresult(1000,2000) );
+
+
+
+
+打气球案例
+
+
 
 
 
