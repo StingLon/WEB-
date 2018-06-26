@@ -5,10 +5,31 @@ Ajax  and   JQuery
 
 
 JQuery
-是一个javascript代码仓库，我们称之为javascript框架
+是封装了JavaScript，能够简化我们写代码的一个JavaScript库，我们称之为javascript框架。jQuery不是将所有JS全部封装，只是有选择的封装
 
-作用:提高了代码的效率。利用css选择器查找DOM对象,对其操作，操作样式或者增删方法等
+作用:提高了代码的效率。            利用css选择器查找DOM对象,对其操作，操作样式或者增删方法等
+     免费，开源且轻量级的js库，容量很小
+     兼容市面上主流浏览器
+     能够处理HTML/JSP/XML、CSS、DOM、事件、实现动画效果，也能提供异步AJAX功能
+     出错后，有一定的提示信息
+ 
+ 
+Jquery对象只能调用Jquery对象的API
+JavaScript对象只能调用JavaScript对象的API 
 
+
+
+JQuery对象与JavaScript对象是可以互相转化的
+
+Jquery转成JavaScript对象：
+jQuery对象[下标，从0开始]
+jQuery对象.get(下标，从0开始)
+ 
+JavaScript对象转成Jquery：
+ 语法：$(js对象)---->jQuery对象
+ 
+ 
+ 
 功能： （1）HTML元素提取
       （2）HTML元素操作
       （3）CSS操作
