@@ -60,6 +60,7 @@ response(响应) 应用
 
 3.验证码：  随机生成图片，用于验证码(servelt方法)
   WEB2/ ResponseDemo2
+  https://github.com/StingLon/WEB-/blob/master/response%E6%A1%88%E4%BE%8B-%E9%AA%8C%E8%AF%81%E7%A0%81
    
 4.定时刷新，转发
    WEB2/ResponseDemo3
@@ -118,7 +119,7 @@ getParameterMap方法
  1. request转发
     
      使用response的sendRedirect()可以实现重定向，做到的功能是页面跳转，
-     使用request的getRequestDispatcher.forward(request,response)实现转发，做到的功能也是页面跳转，他们有什么区别呢
+     使用request的getRequestDispatcher.forward(request,response)实现转发，做到的功能也是页面跳转
      
  
  2.中文乱码
