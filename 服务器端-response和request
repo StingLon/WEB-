@@ -23,7 +23,40 @@ response(响应) 应用
                      printWriter.write("看完博客点赞！");
  
 2.下载
-  例： WEB2/ResponeDemo1
+  例：  String path= this.getServletContext().getRealPath("/download/环奈.jpg");	 
+		 //截取文件名方法            substring(path.lastIndexOf("\\")+1)
+		 String filename =path.substring(path.lastIndexOf("\\")+1);
+		 //打开方式
+		 response.setHeader("content-disposition", "attachment;filename"+URLEncoder.encode(filename,"UTF-8"));
+		 //这两行代码作用就是为了提供给下载功能，去掉后则直接是显示图片	 
+		 //通过流写数据
+		InputStream in = null;
+		OutputStream out = null;
+		try {
+			in = new FileInputStream(path);
+			int len = 0;
+			byte[] buffer = new byte[1024];		
+			out = response.getOutputStream();//修改	
+			while ((len = in.read(buffer)) > 0) {
+				out.write(buffer, 0, len);
+			}
+		}finally {
+			if (in != null) {
+				try {
+					in.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			if (out != null) {
+				try {
+					out.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		} 
+			
 
 3.验证码：  随机生成图片，用于验证码(servelt方法)
   WEB2/ ResponseDemo2
