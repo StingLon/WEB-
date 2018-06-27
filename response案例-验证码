@@ -1,0 +1,67 @@
+	HttpServletResponse response) throws ServletException, IOException {
+
+		BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
+				BufferedImage.TYPE_INT_RGB);
+		Graphics g=image.getGraphics();
+
+		//1.设置背景色
+		setBackGround(g);
+		//2.设置边框
+		setBorder(g);
+		//3.设置干扰线
+		drawRandomLine(g);
+		//4.写随机数
+		drawRandomNum(g);
+		//5.图形写给浏览器
+		response.setContentType("image/jpeg");
+		//去掉缓存，即更新
+		response.setHeader("Cache-Content", "no-cache");
+		response.setHeader("Pragma", "no-cache");
+		
+		ImageIO.write(image, "jpg", response.getOutputStream());
+		
+	}
+	//设置背景色
+	private void setBackGround(Graphics g) {	
+		g.setColor(Color.WHITE);
+        g.fillRect(0, 0, WIDTH, HEIGHT);		
+	}
+	//设置边框
+	private void setBorder(Graphics g) {
+		g.setColor(Color.BLUE);
+		g.drawRect(1, 1, WIDTH-2, HEIGHT-2);
+		
+	}
+	//设置干扰线
+	private void drawRandomLine(Graphics g) {
+		g.setColor(Color.GREEN);
+		for(int i=0;i<5;i++){   //设置五条干扰线
+		int x1=new Random().nextInt(WIDTH);
+		int y1=new Random().nextInt(HEIGHT);
+		
+		int x2=new Random().nextInt(WIDTH);
+		int y2=new Random().nextInt(HEIGHT);
+		g.drawLine(x1, y1, x2, y2);   //做线
+		}
+	}
+	//写随机数
+	private void drawRandomNum(Graphics g) {
+		g.setColor(Color.RED);
+		g.setFont(new Font("宋体",Font.BOLD,20));
+		
+		String base="\u7684\u4e00\u4e86\u662f\u6211\u4e0d\u5728\u4eba\u4eec\u6709\u6765\u4ed6\u8fd9\u4e0a\u7740\u4e2a";
+		StringBuffer sb=new StringBuffer();
+		int x=0;
+		
+		for(int i=0;i<4;i++){	
+		int degree=new Random().nextInt(30);
+		String ch=base.charAt(new Random().nextInt(base.length()))+"";	
+		sb.append(ch);
+//		  // 写入字之前，设置好旋转
+//       g.rotate(degree*Math.PI/180, x, 20); // 设置字体旋转角度
+//        g.drawString(ch, x, 20);
+//        // 这次旋转不能影响下一次的旋转，所以要将上一次的旋转清掉，转回去
+			g.drawString(ch, x, 30);
+			x+=50;
+		}
+		
